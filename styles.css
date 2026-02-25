@@ -1,34 +1,56 @@
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  padding-bottom: 50px; /* Space for the fixed footer */
+}
+
+.container {
+  display: flex;
+  flex-direction: row; /* Side by side on desktop */
+  min-height: 100vh;
+}
+
+.split {
+  flex: 1; /* Each takes up 50% */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image Fix: This makes it fit perfectly */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  /* transform: rotate(90deg); */ /* Be careful: rotating 90deg usually messes up aspect ratios */
+}
+
 footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #f0f0f0; /* Example background color */
-  padding: 10px; /* Example padding */
-  text-align: center; /* Example text alignment */
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+  z-index: 10;
 }
 
-.text-wrap {
-    white-space: normal;
-    width: 400px;
-}
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stacks image on top of text */
+  }
 
-/* Split the screen in half */
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
+  .split {
+    width: 100%;
+    height: auto;
+  }
 
-/* Control the left side */
-.left {
-  left: 0;
-}
-
-/* Control the right side */
-.right {
-  right: 0;
+  .right {
+    text-align: center;
+    padding-bottom: 80px; /* Extra space so footer doesn't hide text */
+  }
 }
