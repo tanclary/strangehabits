@@ -11,6 +11,22 @@ body {
   min-height: 100vh;
 }
 
+h1 {
+    text-align: center;
+    font-family: sans-serif; /* Or sans-serif to match your vibe */
+    font-size: 3rem;
+    margin: 40px 0;
+    text-transform: lowercase; /* Matches your style */
+}
+
+h2 {
+    text-align: center;
+    font-family: sans-serif; /* Or sans-serif to match your vibe */
+    font-size: 2rem;
+    margin: 40px 0;
+    text-transform: lowercase; /* Matches your style */
+}
+
 .split {
   flex: 1; /* Each takes up 50% */
   padding: 20px;
@@ -18,6 +34,22 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.image-grid {
+    display: grid;
+    /* This creates as many 300px columns as will fit in the window */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px; /* Space between images */
+    padding: 20px;
+}
+
+/* Make sure images fill their grid cells nicely */
+.image-grid img {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* Matches your 302x403 ratio */
+    object-fit: cover;
+    display: block;
 }
 
 /* Image Fix: This makes it fit perfectly */
