@@ -60,14 +60,31 @@ img {
   /* transform: rotate(90deg); */ /* Be careful: rotating 90deg usually messes up aspect ratios */
 }
 
+body {
+    padding-left: 20px; /* Adjust this number to your liking */
+    padding-right: 20px; /* Good practice to add right padding for mobile */
+    max-width: 800px;    /* Optional: keeps the blog from stretching too wide */
+    margin: 0 auto;      /* Optional: centers the whole content block on the screen */
+}
+
 footer {
+  text-transform: lowercase;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  left: 0;            /* This locks it to the left edge of the screen */
+  right: 0;           /* This locks it to the right edge of the screen */
   background-color: #f0f0f0;
-  padding: 10px;
+  padding: 15px 0;    /* Vertical padding */
   text-align: center;
   z-index: 10;
+}
+
+.page-description {
+    text-align: center;      /* Centers the text */
+    max-width: 600px;        /* Limits width for better readability */
+    margin: 40px auto;       /* 'auto' centers the block; 40px adds space top/bottom */
+    line-height: 1.6;        /* Adds a bit of breathing room between lines */     /* Optional: gives it that "intro" feel */
+    color: #555;             /* Optional: a slightly softer black/grey */
 }
 
 /* --- MOBILE RESPONSIVENESS --- */
