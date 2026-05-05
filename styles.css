@@ -183,6 +183,18 @@ h2 {
     padding-bottom: 2rem;
 }
 
+.coming-soon {
+    margin-bottom: 4rem;
+    background: rgba(0, 255, 65, 0.05);
+    padding: 2rem;
+    border: 1px dashed var(--text-color);
+}
+
+.coming-soon p {
+    margin-bottom: 1rem;
+}
+
+
 /* Footer */
 footer {
   position: fixed;
