@@ -1,12 +1,12 @@
 :root {
-  --bg-color: #ffffff;
-  --text-color: #1a1a1a;
-  --accent-color: #0070f3;
-  --secondary-color: #666666;
-  --footer-bg: #f9f9f9;
-  --spacing-unit: 1rem;
-  --max-width: 900px;
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --bg-color: #050505;
+  --text-color: #00ff41; /* Classic Terminal Green */
+  --accent-color: #ff003c; /* Infrared Red */
+  --secondary-color: #008f11;
+  --footer-bg: rgba(10, 10, 10, 0.8);
+  --spacing-unit: 1.5rem;
+  --max-width: 1000px;
+  --font-family: 'Courier New', Courier, monospace;
 }
 
 * {
@@ -19,37 +19,67 @@ body {
   font-family: var(--font-family);
   background-color: var(--bg-color);
   color: var(--text-color);
-  line-height: 1.6;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  padding-bottom: 80px; /* Space for footer */
+  line-height: 1.4;
+  font-size: 14px;
+  overflow-x: hidden;
+  padding-bottom: 80px;
+}
+
+/* Background Canvas */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+    image-rendering: pixelated;
+}
+
+/* CRT Scanline Effect */
+body::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 1000;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
 }
 
 a {
-  color: inherit;
+  color: var(--accent-color);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 a:hover {
-  border-bottom-color: var(--text-color);
+  background-color: var(--accent-color);
+  color: var(--bg-color);
 }
 
 h1, h2, h3 {
-  text-transform: lowercase;
-  font-weight: 600;
-  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 h1 {
-  font-size: clamp(2rem, 8vw, 3.5rem);
-  margin-bottom: var(--spacing-unit);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  border-bottom: 2px solid var(--text-color);
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 2rem;
 }
 
 h2 {
-  font-size: clamp(1.25rem, 4vw, 1.75rem);
-  margin-bottom: calc(var(--spacing-unit) * 0.5);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 /* Layouts */
@@ -57,25 +87,23 @@ h2 {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--spacing-unit);
-}
-
-/* Landing Page Layout */
-.home-main {
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 160px); /* Adjust for header and footer */
+  position: relative;
 }
 
 .home-header {
-    padding: 4rem 0 2rem;
+    padding: 6rem 0 2rem;
     text-align: center;
+}
+
+.home-main {
+    min-height: calc(100vh - 200px);
 }
 
 .home-content {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding: 2rem var(--spacing-unit);
+    gap: 4rem;
+    padding: 2rem 0;
     align-items: center;
 }
 
@@ -83,15 +111,12 @@ h2 {
     .home-content {
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
         max-width: var(--max-width);
         margin: 0 auto;
-        padding: 4rem 2rem;
     }
 
     .home-nav {
         flex: 1;
-        text-align: left;
     }
 
     .home-image {
@@ -103,86 +128,52 @@ h2 {
 
 .home-image img {
     width: 100%;
-    max-width: 450px;
+    max-width: 400px;
     height: auto;
-    object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid var(--text-color);
+    filter: sepia(100%) hue-rotate(90deg) brightness(1.2) contrast(1.2); /* Terminal Green Filter */
 }
 
 .math-equation {
-    margin-top: 3rem;
-    font-family: monospace;
-    color: var(--secondary-color);
-    font-size: 0.9rem;
-}
-
-/* Navigation Links */
-.nav-links {
-    margin-top: 2rem;
-}
-
-.nav-links h2 {
-    margin-bottom: 1rem;
+    margin-top: 4rem;
+    background: rgba(0, 255, 65, 0.1);
+    padding: 1rem;
+    border: 1px dashed var(--text-color);
 }
 
 /* Image Grid */
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: calc(var(--spacing-unit) * 1.5);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
   margin-top: 2rem;
 }
 
 .image-grid img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  transition: opacity 0.3s ease;
+  border: 1px solid var(--text-color);
+  filter: grayscale(100%) contrast(1.5);
 }
 
 .image-grid img:hover {
-    opacity: 0.9;
-}
-
-/* Page Headers */
-header {
-    text-align: center;
-    padding: 4rem 0 2rem;
-}
-
-header h1 {
-    margin-bottom: 0.5rem;
+    filter: none;
 }
 
 /* Content */
 .content-section {
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 0;
-}
-
-.content-section p {
-    margin-bottom: 1.5rem;
-    color: var(--secondary-color);
-}
-
-.text-wrap {
-    white-space: pre-wrap;
-    margin-bottom: 2rem;
+    padding: 4rem 0;
+    border-left: 1px solid var(--text-color);
+    padding-left: 2rem;
 }
 
 .blog-post {
-    margin-bottom: 4rem;
-}
-
-.blog-post h3 {
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-.blog-post img {
-    margin: 1.5rem 0;
-    max-width: 100%;
+    margin-bottom: 5rem;
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 2rem;
 }
 
 /* Footer */
@@ -192,31 +183,17 @@ footer {
   left: 0;
   width: 100%;
   background-color: var(--footer-bg);
-  padding: 1.5rem;
+  padding: 1rem;
   text-align: center;
-  font-size: 0.8rem;
-  color: var(--secondary-color);
-  text-transform: lowercase;
-  border-top: 1px solid #eee;
+  font-size: 0.7rem;
+  color: var(--text-color);
+  text-transform: uppercase;
+  border-top: 1px solid var(--text-color);
   z-index: 100;
-}
-
-/* Utilities */
-.page-description {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 3rem;
-    color: var(--secondary-color);
-    font-style: italic;
+  backdrop-filter: blur(5px);
 }
 
 .back-link {
     display: block;
-    margin-top: 3rem;
-    text-align: center;
-}
-
-.contact-info {
-    color: #2e7d32;
-    font-weight: 500;
+    margin-top: 4rem;
 }

@@ -6,48 +6,56 @@
     <title>strange habits</title>
     <meta name="description" content="strange habits - a screen printing and design project">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFas96QB1nF" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0W0S8W" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false}
-                ],
-                throwOnError : false
-            });
-        });
-    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<header class="home-header">
-    <h1>strange habits</h1>
-</header>
+<canvas id="bg-canvas"></canvas>
 
-<main class="home-main">
-    <div class="home-content">
-        <nav class="home-nav">
-            <div class="nav-links">
-                <h2><a href="about.html">what is happening?</a></h2>
-                <h2><a href="blog.html">read da blog</a></h2>
-                <h2><a href="print-archive.html">print archive</a></h2>
-                <h2><a href="design-archive.html">design archive</a></h2>
+<div class="container">
+    <header class="home-header">
+        <h1>strange habits</h1>
+    </header>
+
+    <main class="home-main">
+        <div class="home-content">
+            <nav class="home-nav">
+                <div class="nav-links">
+                    <h2><a href="about.html">> what is happening?</a></h2>
+                    <h2><a href="blog.html">> read da blog</a></h2>
+                    <h2><a href="print-archive.html">> print archive</a></h2>
+                    <h2><a href="design-archive.html">> design archive</a></h2>
+                </div>
+                <div class="math-equation">
+                    <p>// equation to remember:</p>
+                    <p>$r = \frac{0.100 + \sin(0) + \cos(0) - \tan(0)}{0}$</p>
+                </div>
+            </nav>
+
+            <div class="home-image">
+                <img src="images/optimized/weirdo.jpg" alt="weirdo" decoding="async">
             </div>
-            <p class="math-equation">
-                equation to remember: $r = \frac{0.100 + \sin(0) + \cos(0) - \tan(0)}{0}$
-            </p>
-        </nav>
-
-        <div class="home-image">
-            <img src="images/optimized/weirdo.jpg" alt="a screen-printed design showing a 'weirdo' character" decoding="async">
         </div>
-    </div>
-</main>
+    </main>
+</div>
 
 <footer>made with love in san francisco, california</footer>
+
+<script src="scripts.js"></script>
+<script>
+    // KaTeX Init
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
 
 </body>
 </html>
