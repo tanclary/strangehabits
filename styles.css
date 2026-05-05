@@ -116,14 +116,20 @@ h2 {
     }
 
     .home-nav {
-        flex: 1;
+        flex: 1.2;
+        padding-left: 10%; /* Nudge closer to center */
     }
 
     .home-image {
         flex: 1;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
     }
+}
+
+.home-nav h2 {
+    font-size: 1.8rem; /* Bigger hyperlinks */
+    margin-bottom: 1.5rem;
 }
 
 .home-image img {
