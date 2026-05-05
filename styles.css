@@ -186,18 +186,19 @@ h2 {
 .blog-images {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1rem;
     margin-top: 2rem;
 }
 
 .blog-images img {
-    max-width: 300px;
-    width: 100%;
+    width: calc(25% - 0.75rem);
+    min-width: 150px;
     height: auto;
     border: 1px solid var(--text-color);
     filter: grayscale(100%) contrast(1.2);
     transition: filter 0.3s ease;
 }
+
 
 .blog-images img:hover {
     filter: none;
