@@ -191,13 +191,14 @@ h2 {
 }
 
 .blog-images img {
-    width: 150px !important;
-    max-width: 25% !important;
+    width: 20% !important;
+    max-width: 150px !important;
     height: auto;
     border: 1px solid var(--text-color);
     filter: grayscale(100%) contrast(1.2);
     transition: filter 0.3s ease;
 }
+
 
 
 
