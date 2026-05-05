@@ -183,6 +183,27 @@ h2 {
     padding-bottom: 2rem;
 }
 
+.blog-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.blog-images img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--text-color);
+    filter: grayscale(100%) contrast(1.2);
+    transition: filter 0.3s ease;
+}
+
+.blog-images img:hover {
+    filter: none;
+}
+
+
 .coming-soon {
     margin-bottom: 4rem;
     background: rgba(0, 255, 65, 0.05);
